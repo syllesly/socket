@@ -56,5 +56,12 @@ bot.on('message', (message) => {
             message.channel.send("Hey "+message.author+" don\'t swear!");
         }
     }
+    if(c.startsWith(prx+" math")) {
+        var m="";
+        for(var i=(prx+" math).length;i<c.length;i++) {
+            m+=c[i];
+        }
+        message.channel.send(eval(m)));
+    }
 })
 bot.login(process.env.token);
