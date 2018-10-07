@@ -8,37 +8,36 @@ var joinB;
 
 bot.on('message', (message) => {
     var n=message.guild.roles.find('name','Not Dangerous');
-    var c=message.content;
-    var args=c.split(" ")
+    const c=message.content;
     if(c.includes("don\'t swear!")) {
         message.delete(2000);
     }
     if(message.author.bot) return;
-    if(args[0]==prx && args[1]=="invite") {
+    if(c==prx+" invite") {
         message.channel.send('Here '+message.author+":  https://discord.gg/nntvGP4");
     }
     if(message.author==join && c!=joinA+joinB+""){
         message.channel.send("No it is not "+join+".");
         join=0;
     }
-    if(args[0]==prx && args[1]=="join") {
+    if(c.startsWith(prx+" join")) {
         join=message.author;
         joinA=Math.floor(Math.random()*20);
         joinB=Math.floor(Math.random()*20);
         message.channel.send("Ok then "+join+", what is "+joinA+"+"+joinB+"?");
     }
-    if(args[0]==joinA+joinB+"" && message.author==join){
+    if(c==joinA+joinB+"" && message.author==join){
         message.channel.send("Welcome "+join+"!");
         message.member.addRole(n);
         join=0;
     }
-    if(args[0]==prx && args[1]=='ping'){
+    if(c==prx+' ping'){
         message.channel.send('pong');
     }
-    if(args[0]==prx && args[1]=='pong'){
+    if(c==prx+' pong'){
         message.channel.send('ping');
     }
-    if(args[0]==prx && args[1]='echo') {
+    if(c.startsWith(prx+" echo")) {
         var echo="";
         for(var i=(prx+" echo").length;i<c.length;i++) {
             echo+=c[i];
@@ -56,13 +55,6 @@ bot.on('message', (message) => {
             }
             message.channel.send("Hey "+message.author+" don\'t swear!");
         }
-    }
-    if(args[0]==prx && args[1]=="math") {
-        var s="";
-        for(var i=2;i<args.length;i++) {
-            s+=args[i];
-        }
-        message.channel.send(eval(s));
     }
 })
 bot.login(process.env.token);
