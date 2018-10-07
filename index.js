@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const bot=new Discord.Client();
 var prx="<@434060815499526175>";
-const sw=["fuck","damn","shit"];
+const sw=["fuck","damn","shit"]; 
 var join;
 var joinA;
 var joinB;
