@@ -14,7 +14,7 @@ bot.on('message', (message) => {
     }
     if(message.author.bot) return;
     if(c==prx+" invite") {
-        message.channel.send('Here '+message.author+":  https://discord.gg/9ETgdn");
+        message.channel.send('Here '+message.author+":  https://discord.gg/nntvGP4");
     }
     if(message.author==join && c!=joinA+joinB+""){
         message.channel.send("No it is not "+join+".");
