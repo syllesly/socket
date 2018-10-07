@@ -8,7 +8,7 @@ var joinB;
 
 bot.on('message', (message) => {
     var n=message.guild.roles.find('name','Not Dangerous');
-    const c=message.content;
+    var c=message.content;
     var args=c.split(" ")
     if(c.includes("don\'t swear!")) {
         message.delete(2000);
